@@ -22,6 +22,7 @@ $ git branch
 
 ```bash
 $ git branch -r
+$ git branch --remote
 ```
 
 `-a`参数查看所有分支（包含本地和远程）。
@@ -44,6 +45,7 @@ $ git branch MyBranch
 
 ```bash
 $ git checkout -b MyBranch
+$ git branch MyBranch && git checkout MyBranch
 ```
 
 上面命令创建`MyBranch`分支，然后切换到该分支。
@@ -52,6 +54,7 @@ $ git checkout -b MyBranch
 
 ```bash
 $ git push -u origin MyBranch
+$ git push --set-upstream origin MyBranch
 ```
 
 上面命令在远程`origin`仓库创建了`MyBranch`分支，并且与本地的`MyBranch`分支建立对应关系。
@@ -60,6 +63,7 @@ $ git push -u origin MyBranch
 
 ```bash
 $ git push -u origin HEAD
+$ git push --set-upstream origin HEAD
 ```
 
 上面命令中，`HEAD`是 Git 自带的动态指针，总是指向当前的本地分支。
@@ -77,6 +81,7 @@ $ git checkout MyBranch
 `git checkout`命令也可以切换到远程分支。
 
 ```bash
+$ git checkout -t origin/MyBranch
 $ git checkout --track origin/MyBranch
 ```
 
@@ -88,6 +93,7 @@ $ git checkout --track origin/MyBranch
 
 ```bash
 $ git branch -m MyBranch
+$ git branch --move MyBranch
 ```
 
 上面命令将当前分支改名为`MyBranch`。
@@ -98,6 +104,7 @@ $ git branch -m MyBranch
 
 ```bash
 $ git branch -d MyBranch
+$ git branch --delete MyBranch
 ```
 
 上面命令删除`MyBranch`分支，前提是该分支没有未合并的变动。
@@ -106,11 +113,13 @@ $ git branch -d MyBranch
 
 ```bash
 $ git branch -D MyBranch
+$ git branch --delete --force MyBranch
 ```
 
 `git push`命令可以删除远程分支。
 
 ```bash
+$ git push origin -d MyBranch
 $ git push origin --delete MyBranch
 ```
 
